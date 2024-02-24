@@ -1,0 +1,12 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+secretGenerator:
+- files:
+  - password=01-sql-secret.yaml
+  name: my-secret
+  type: Opaque
+resources:
+- 01-sql-secret.yaml
+- 02-mysql.yaml
+- task-01-deployment.yaml
+- task-02-service.yaml
